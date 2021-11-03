@@ -1,0 +1,60 @@
+@use './components/_toggle.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// <a href='https://www.freepik.com/vectors/background'> Background vector created by freepik - www.freepik.com</a>
+.theme-light {
+  --dark-text: #5E4B56;
+  --dark-background: #FCFBF9;
+  --light-background: #EDDCD2;
+  --accent: #dbe7e4;
+  --button-border: #5E4B56;
+  --light-text: #5E4B56;
+  --image-background: url("../assets/banner_light.png");
+}
+
+.theme-dark {
+  --dark-text: #292929;
+  --dark-background: #040406;
+  --light-background: #586F7C;
+  --accent: #b8dbd9;
+  --button-border: #292929;
+  --light-text: #F9F8F8;
+  --image-background: url("../assets/banner_dark.jpg")
+}
+
+html, #root {
+  font-family: 'Poppins x', monospace;
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+body {    
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+  
+
+.app{
+  height: 100vh;
+
+  background-image: var(--image-background);
+  background-repeat:no-repeat;
+  background-position: center center;
+  background-size: cover;
+}

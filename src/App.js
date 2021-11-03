@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, makeStyles } from "@material-ui/core";
+import { useEffect } from "react";
+import Toggle from "./components/Toggle";
+import { keepTheme } from "./utils/utils";
+
+const useStyles = makeStyles({
+  button:{
+    border: "3px solid var(--button-border)",
+    padding: "1rem",
+    borderRadius: "50px",
+    background: "transparent",
+
+    height: "90px",
+    width: "340px",
+    fontSize: "1.8rem",
+    color: "inherit",
+    fontWeight: 600
+  }
+})
 
 function App() {
+
+  const classes = useStyles()
+
+  useEffect(() => {
+    keepTheme()
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+        <Toggle/>
+        <div style={{
+          display:"grid",
+          placeItems: "center",
+          height:"54%"
+        }}>
+          <Button className ={classes.button}>
+            Generate
+          </Button>
+        </div>
     </div>
   );
 }
