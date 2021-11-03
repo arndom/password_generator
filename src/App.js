@@ -4,6 +4,12 @@ import Toggle from "./components/Toggle";
 import { keepTheme } from "./utils/utils";
 
 const useStyles = makeStyles({
+  holder:{
+    display:"grid",
+    placeItems: "center",
+    height:"54%"
+  },
+
   button:{
     border: "3px solid var(--button-border)",
     padding: "1rem",
@@ -29,11 +35,7 @@ function App() {
   return (
     <div className="app">
         <Toggle/>
-        <div style={{
-          display:"grid",
-          placeItems: "center",
-          height:"54%"
-        }}>
+        <div className={classes.holder}>
           <Button className ={classes.button}>
             Generate
           </Button>
