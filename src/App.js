@@ -2,6 +2,7 @@ import { Button, makeStyles } from "@material-ui/core";
 import { useEffect } from "react";
 import Toggle from "./components/Toggle";
 import { keepTheme } from "./utils/utils";
+import {GitHub} from '@material-ui/icons';
 
 const useStyles = makeStyles({
   holder:{
@@ -21,7 +22,39 @@ const useStyles = makeStyles({
     fontSize: "1.8rem",
     color: "inherit",
     fontWeight: 600
+  },
+
+  nav:{
+    display:"flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width:"90%",
+    margin:"auto",
+  },
+
+  logo:{
+    color:"inherit",
+    fontSize: "1.5rem",
+    fontWeight: 600,
+    padding: "20px"
+  },
+
+  navButtons:{
+    display: "flex",
+    alignItems: "center"
+  },
+
+  svgRing:{
+    width: "44px",
+    height: "44px",
+    display:"grid",
+    placeItems: "center",
+    border: "2px solid",
+    borderRadius: "50px",
+    cursor: "pointer"
   }
+
+
 })
 
 function App() {
@@ -34,7 +67,21 @@ function App() {
 
   return (
     <div className="app">
-        <Toggle/>
+        <div className={classes.nav}>
+          
+          <p className={classes.logo}>Genera+3-Pa$$word</p>
+          <div className={classes.navButtons}>
+            <div
+              className={classes.svgRing}
+              onClick= {()=> window.open('https://github.com/arndom', '_blank').focus()}
+            >
+              <GitHub/>
+            </div>
+            <Toggle/>
+          </div>
+        
+        </div>
+
         <div className={classes.holder}>
           <Button className ={classes.button}>
             Generate
