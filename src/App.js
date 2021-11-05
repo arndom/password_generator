@@ -1,27 +1,31 @@
-import { Button, makeStyles } from "@material-ui/core";
-import { useEffect } from "react";
+import { Autorenew, ContentCopy, GitHub } from "@mui/icons-material";
+import { TextField } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { useEffect, useState } from "react";
+
 import Toggle from "./components/Toggle";
-import { keepTheme } from "./utils/utils";
-import {GitHub} from '@material-ui/icons';
+import { keepTheme, Password } from "./utils/utils";
 
 const useStyles = makeStyles({
   holder:{
-    display:"grid",
-    placeItems: "center",
+    display: "flex",
+    flexDirection:"column-reverse",
+    justifyContent: "center",
+    alignItems: "center",
     height:"54%"
   },
 
   button:{
-    border: "3px solid var(--button-border)",
-    padding: "1rem",
-    borderRadius: "50px",
-    background: "transparent",
+    border: "3px solid var(--button-border) !important",
+    padding: "1rem !important",
+    borderRadius: "50px !important",
+    background: "transparent !important",
 
-    height: "90px",
-    width: "340px",
-    fontSize: "1.8rem",
-    color: "inherit",
-    fontWeight: 600
+    height: "50px !important",
+    width: "160px !important",
+    fontSize: ".9rem !important",
+    color: "inherit !important",
+    fontWeight: "600 !important"
   },
 
   nav:{
@@ -51,29 +55,58 @@ const useStyles = makeStyles({
     placeItems: "center",
     border: "2px solid",
     borderRadius: "50px",
-    cursor: "pointer"
-  }
+    cursor: "pointer",
 
+    "&:hover":{
+      background: "var(--generate-button)"
+    }
+  },
+
+  textField:{
+    margin: "20px !important",
+
+    "& .MuiOutlinedInput-input":{
+      color: "var(--dark-text) !important",
+      border: "2px solid var(--button-border) !important",
+      borderRadius: "10px !important",
+      textAlign: "center",
+      fontWeight: "600 !important",
+      background: "var(--text-field)"
+    },
+
+    "& .MuiOutlinedInput-notchedOutline":{
+      border: "none"
+    },  
+
+    "& .Mui-disabled":{
+      "-webkitTextFillColor": "var(--dark-text) !important"
+    },
+  },
 
 })
 
 function App() {
 
   const classes = useStyles()
+  const[password, setPassword] = useState(()=>Password.generate(16));
 
   useEffect(() => {
     keepTheme()
   })
 
+  const generatePassword = () => setPassword(Password.generate(16))
+  const openLink = () => window.open('https://github.com/arndom', '_blank').focus()
+  const copyText =() => navigator.clipboard.writeText(password)
+
   return (
     <div className="app">
         <div className={classes.nav}>
           
-          <p className={classes.logo}>Genera+3-Pa$$word</p>
+          <p className={classes.logo}>Genera+8-Pa$$word</p>
           <div className={classes.navButtons}>
             <div
               className={classes.svgRing}
-              onClick= {()=> window.open('https://github.com/arndom', '_blank').focus()}
+              onClick= {openLink}
             >
               <GitHub/>
             </div>
@@ -83,10 +116,26 @@ function App() {
         </div>
 
         <div className={classes.holder}>
-          <Button className ={classes.button}>
-            Generate
-          </Button>
+
+          <div 
+            className ={classes.svgRing}
+            onClick = {generatePassword} 
+          >
+            <Autorenew/>
+          </div>
+          
+          <div className={classes.navButtons}>
+            <TextField disabled id="outlined-basic" variant="outlined" value= {password} className={classes.textField}/>  
+            <div 
+              className = {classes.svgRing}
+              onClick = {copyText}
+            >
+              <ContentCopy/>
+            </div>
+          </div>
+
         </div>
+
     </div>
   );
 }

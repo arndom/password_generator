@@ -13,20 +13,23 @@
   --dark-text: #5E4B56;
   --dark-background: #FCFBF9;
   --light-background: #EDDCD2;
-  --accent: #dbe7e4;
   --button-border: #5E4B56;
   --light-text: #5E4B56;
   --image-background: url("../assets/banner_light.png");
+  --text-field: #DAD7CE;
+  --generate-button: #b9fbc0;
 }
 
 .theme-dark {
   --dark-text: #F5F5F5; /* 292929 */
   --dark-background: #040406;
   --light-background: #586F7C;
-  --accent: #b8dbd9;
   --button-border: #F5F5F5; /* 292929 */
   --light-text: #F9F8F8;
-  --image-background: url("../assets/banner_dark.jpg")
+  --image-background: url("../assets/banner_dark.jpg");
+  --text-field: #242730;
+  --generate-button: #076651;
+
 }
 
 html, #root {
