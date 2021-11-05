@@ -98,6 +98,17 @@ const useStyles = makeStyles({
     },
   },
 
+  footerText:{
+    bottom: 18,
+    cursor: "pointer",
+    fontSize: ".7rem",
+    position: "absolute",
+    textAlign: "center",
+    width: "100%",
+    textDecoration: "none",
+    color: "inherit"
+  },
+
 })
 
 function App() {
@@ -142,6 +153,13 @@ function App() {
             </div>
           </div>
         </div>
+
+        <a 
+        className={classes.footerText}
+        href="https://it.uottawa.ca/security/identity-authentication-theft"
+        rel="noreferrer"
+        target="_blank"
+        >Why have a unique password?</a>
 
     </div>
   );
