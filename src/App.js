@@ -16,6 +16,14 @@ const useStyles = makeStyles({
     height:"54%"
   },
 
+  holderResp:{
+    display: "flex",
+    flexDirection:"column-reverse",
+    justifyContent: "center",
+    alignItems: "center",
+    height:"49%"
+  },
+
   button:{
     border: "3px solid var(--button-border) !important",
     padding: "1rem !important",
@@ -153,7 +161,7 @@ function App() {
           </div>
         </div>
 
-        <div className={classes.holder}>
+        <div className={resp ? classes.holder : classes.holderResp}>
           <div className ={classes.svgRingGenerate} onClick = {generatePassword}>
             <Autorenew/>
           </div>
