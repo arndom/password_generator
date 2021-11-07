@@ -1,5 +1,5 @@
 import { Autorenew, ContentCopy, GitHub } from "@mui/icons-material";
-import { TextField } from "@mui/material";
+import { TextField, useMediaQuery } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -31,6 +31,15 @@ const useStyles = makeStyles({
 
   nav:{
     display:"flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width:"90%",
+    margin:"auto",
+  },
+
+  navResp:{
+    display:"flex",
+    flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
     width:"90%",
@@ -114,6 +123,8 @@ const useStyles = makeStyles({
 function App() {
 
   const classes = useStyles()
+  const resp = useMediaQuery('(min-width:600px)');
+
   const[password, setPassword] = useState(()=>Password.generate(16));
 
   useEffect(() => {
@@ -132,7 +143,7 @@ function App() {
       
       <Toaster position="top-center" reverseOrder={true}/>
 
-        <div className={classes.nav}>
+        <div className={resp ? classes.nav : classes.navResp}>
           <p className={classes.logo}>Genera+8-Pa$$word</p>
           <div className={classes.navButtons}>
             <div className={classes.svgRing} onClick= {openLink}>
