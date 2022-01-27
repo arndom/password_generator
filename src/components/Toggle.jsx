@@ -32,7 +32,8 @@ const Toggle = () => {
           id="toggle"
           className="toggle--checkbox"
           onClick={handleOnClick}
-          checked
+          checked={true}
+          readOnly
         />
       ) : (
         <input
@@ -40,7 +41,8 @@ const Toggle = () => {
           id="toggle"
           className="toggle--checkbox"
           onClick={handleOnClick}
-
+          checked={false}
+          readOnly
         />
       )}
       <label htmlFor="toggle" className="toggle--label">
