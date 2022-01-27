@@ -15,7 +15,7 @@ export const keepTheme = () => {
   }
 }
 
-export var Password = {
+export const Password = {
  
   //eslint-disable-next-line
   _pattern : /[a-zA-Z0-9_\-\+\.\!\@\#\%\^\&\*\~]/,

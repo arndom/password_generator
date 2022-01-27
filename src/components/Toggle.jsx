@@ -1,37 +1,53 @@
-import React, {useEffect, useState} from 'react'
-import { setTheme } from '../utils/utils';
+import React, { useEffect, useState } from "react";
+import { setTheme } from "../utils/utils";
 
 const Toggle = () => {
-    //eslint-disable-next-line
-    const [togClass, setTogClass] = useState('dark');
-    let theme = localStorage.getItem('theme');
+  //eslint-disable-next-line
+  const [togClass, setTogClass] = useState("dark");
+  let theme = localStorage.getItem("theme");
 
-    const handleOnClick = () => {
-        if (localStorage.getItem('theme') === 'theme-dark') {
-            setTheme('theme-light');
-            setTogClass('light')
-        } else {
-            setTheme('theme-dark');
-            setTogClass('dark')
-        }
+  const handleOnClick = () => {
+    if (localStorage.getItem("theme") === "theme-dark") {
+      setTheme("theme-light");
+      setTogClass("light");
+    } else {
+      setTheme("theme-dark");
+      setTogClass("dark");
     }
+  };
 
-    useEffect(() => {
-        if (localStorage.getItem('theme') === 'theme-dark') {
-            setTogClass('dark')
-        } else if (localStorage.getItem('theme') === 'theme-light') {
-            setTogClass('light')
-        }
-    }, [theme])
+  useEffect(() => {
+    if (localStorage.getItem("theme") === "theme-dark") {
+      setTogClass("dark");
+    } else {
+      setTogClass("light");
+    }
+  }, [theme]);
 
-    return (
-        <div className="container--toggle">
-           <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick} />
-            <label htmlFor="toggle" className="toggle--label">
-                <span className="toggle--label-background"></span>
-            </label>
-        </div>
-    )
-}
+  return (
+    <div className="container--toggle">
+      {togClass === "light" ? (
+        <input
+          type="checkbox"
+          id="toggle"
+          className="toggle--checkbox"
+          onClick={handleOnClick}
+          checked
+        />
+      ) : (
+        <input
+          type="checkbox"
+          id="toggle"
+          className="toggle--checkbox"
+          onClick={handleOnClick}
 
-export default Toggle
+        />
+      )}
+      <label htmlFor="toggle" className="toggle--label">
+        <span className="toggle--label-background"></span>
+      </label>
+    </div>
+  );
+};
+
+export default Toggle;
